@@ -5,15 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "mkdir public/build && touch public/build/app.min.js",
-    "build": "browserify src/main.js | uglifyjs -o public/build/app.min.js",
-    "watch": "nodemon -e js -w src -x 'npm run build'"
+    "postinstall": "mkdir -p public/build && touch public/build/app.min.js",
+    "watch": "watchify src/main.js -o 'uglifyjs -cm > public/build/app.min.js'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^11.0.1",
-    "nodemon": "^1.4.1",
+    "watchify": "^3.3.1",
     "uglifyjs": "^2.4.10"
+  },
+  "dependencies": {
+    "jquery": "^1.11.3"
   }
 }

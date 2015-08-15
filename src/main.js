@@ -1,5 +1,8 @@
-// import modules
+// import vendor modules
+var jQuery = require('jquery')
+
+// import project modules
 var example = require('./example')
 
 // use them
-var body = document.getElementsByTagName("body")[0].innerHTML = example.data
+jQuery('body').html(example.data);
