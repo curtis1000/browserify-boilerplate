@@ -1,4 +1,4 @@
-# browserify-boilerplate
+# Browserify Boilerplate
 
 This is a simple demonstration of how you might setup a web project to use commonjs modules with browserify. 
 
@@ -7,8 +7,7 @@ This is a simple demonstration of how you might setup a web project to use commo
   - ```npm run watch```
   - Serve the ```/public``` directory
   
-###Watch Script###
-The [watch script](https://github.com/curtis1000/browserify-boilerplate/blob/master/package.json#L10) uses nodemon to monitor changes to *.js files in the /src directory, and calls the build script on changes.
+###How It Works###
+The [watch script](https://github.com/curtis1000/browserify-boilerplate/blob/master/package.json#L9) uses watchify to monitor changes to the app's entrypoint ```src/main.js``` (or any modules referenced thereon). 
 
-###Build Script###
-The [build script](https://github.com/curtis1000/browserify-boilerplate/blob/master/package.json#L9) runs browserify on the ```src/main.js``` entrypoint to our application, sending the output to ```public/build/app.min.js```. For minification, the browserify output gets piped through uglifyjs.
+When a change is detected, watchify will run browserify which compiles source code to ```public/build/app.min.js```. There is an additional step through ```uglifyjs``` to add minification as well.
