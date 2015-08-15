@@ -7,5 +7,7 @@ This is a simple demonstration of how you might setup a web project to use commo
   - ```npm run watch```
   - Serve the ```/public``` directory
   
-###Watch Script###
-The [watch script](https://github.com/curtis1000/browserify-boilerplate/blob/master/package.json#L9) uses watchify (which requires browserify in its dependencies) to monitor changes to ```src/main.js```, and runs browserify on changes.
+###How It Works###
+The [watch script](https://github.com/curtis1000/browserify-boilerplate/blob/master/package.json#L9) uses watchify to monitor changes to the app's entrypoint ```src/main.js``` (or any modules referenced thereon). 
+
+When a change is detected, watchify will run browserify which compiles source code to ```public/build/app.min.js```. There is an additional step through ```uglifyjs``` to add minification as well.
